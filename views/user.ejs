@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Banking App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            
+            <strong>Banking App</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Transferring amount 100 from <%= locals.username %> to</h1>
+
+          <table class="table">
+            <tbody>
+                <form action="/customers/<%= username %>" method="POST">
+                    <div class="form-group">
+                      <% if(locals.customersdata) { %>
+                        <% customersdata.forEach(result=>{ %>
+                            <tr>
+                              <input type="radio" id="<%= result.name %>" name="rrr" value="<%= result.name %>"/>
+                              <label for="male">&nbsp;&nbsp;<strong><%= result.name %></strong>&nbsp;&nbsp;</label><br>
+                            </tr>
+                        <% }); %>
+                      <% } %> 
+                   </div>
+                 <button type="submit" class="btn btn-primary btn-md">
+                     Send
+                 </button>
+                </form>
+            </tbody>
+          </table>
+          <br><br><br>
+          <p>
+            <a href="/" class="btn btn-primary my-2">Home</a>
+            <a href="/customers" class="btn btn-secondary my-2">Back to Customers</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+
+        <p style="text-align: center;">
+          <!-- Social Media Icons -->
+          <a href="https://www.facebook.com/" style="font-size: 40px; color: #3B5998;" class="fa fa-facebook"></a>
+          <a href="https://twitter.com/" style="font-size: 40px; color: #55ACEE;" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/" style="font-size: 40px; color: #007bb5;" class="fa fa-linkedin"></a>
+          <a href="https://www.linkedin.com/" style="font-size: 40px; color: #bb0000;" class="fa fa-youtube"></a>
+          <a href="https://www.instagram.com/" style="font-size: 40px; color: #125688;" class="fa fa-instagram"></a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
